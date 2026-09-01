@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: miret-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        value: postgresql://miret_db_user:bCXGr3wft2YIzmcuEFCbHimraLyePW1A@dpg-dab41fvavr4c73enrpfg-a.frankfurt-postgres.render.com/miret_db
