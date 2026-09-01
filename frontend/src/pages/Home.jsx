@@ -4,7 +4,7 @@ import axios from "axios"
 import WeatherWidget from "../components/WeatherWidget"
 import PriceCard from "../components/PriceCard"
 
-const API = "http://localhost:8000"
+const API = "https://miret-api.onrender.com"
 
 export default function Home({ lang }) {
   const [prices, setPrices] = useState([])

@@ -49,7 +49,7 @@ prices = [
     Price(crop_name="Haricot Bean", market="Hawassa Market", region="SNNPR", price_etb=8800, unit="quintal", is_verified=True),
 ]
 
-db.add_all(crops)Í
+db.add_all(crops)
 db.add_all(markets)
 db.add_all(prices)
 db.commit()

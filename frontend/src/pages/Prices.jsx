@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import PriceCard from "../components/PriceCard"
 
-const API = "http://localhost:8000"
+const API = "https://miret-api.onrender.com"
 
 export default function Prices({ lang }) {
   const [prices, setPrices] = useState([])
