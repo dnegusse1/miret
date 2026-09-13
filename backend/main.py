@@ -8,6 +8,8 @@ from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
 from weather import get_weather_data, get_seeding_recommendation
+from esx import get_esx_prices, get_usd_etb_rate
+
 
 app = FastAPI(
     title="Miret API",
@@ -112,3 +114,10 @@ async def get_seeding_advice(region: str, crop: str):
         "weather": weather,
         "recommendation": recommendation
     }
+    @app.get("/finance/stocks")
+async def get_stocks():
+    return get_esx_prices()
+
+@app.get("/finance/exchange-rate")
+async def get_exchange_rate():
+    return get_usd_etb_rate()
