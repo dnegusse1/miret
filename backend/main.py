@@ -101,7 +101,6 @@ async def get_weather(region: str):
     if not data:
         raise HTTPException(status_code=404, detail="Region not found")
     return data
-
 @app.get("/seeding/{region}/{crop}")
 async def get_seeding_advice(region: str, crop: str):
     weather = await get_weather_data(region)
@@ -113,12 +112,10 @@ async def get_seeding_advice(region: str, crop: str):
         "crop": crop,
         "weather": weather,
         "recommendation": recommendation
-            "recommendation": recommendation
     }
 @app.get("/finance/stocks")
 async def get_stocks():
     return get_esx_prices()
-
 @app.get("/finance/exchange-rate")
 async def get_exchange_rate():
     return get_usd_etb_rate()
