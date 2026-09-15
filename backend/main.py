@@ -113,7 +113,6 @@ async def get_seeding_advice(region: str, crop: str):
         "crop": crop,
         "weather": weather,
         "recommendation": recommendation
-            "recommendation": recommendation
     }
 @app.get("/finance/stocks")
 async def get_stocks():
