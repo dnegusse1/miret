@@ -10,7 +10,6 @@ from datetime import datetime
 from weather import get_weather_data, get_seeding_recommendation
 from esx import get_esx_prices, get_usd_etb_rate
 
-
 app = FastAPI(
     title="Miret API",
     description="Ethiopian Agricultural Market Price Platform",
@@ -70,7 +69,6 @@ def get_prices(
     prices = query.order_by(Price.created_at.desc()).limit(50).all()
     return prices
 
-
 @app.post("/prices")
 def submit_price(submission: PriceSubmission, db: Session = Depends(get_db)):
     price = Price(
@@ -101,6 +99,7 @@ async def get_weather(region: str):
     if not data:
         raise HTTPException(status_code=404, detail="Region not found")
     return data
+
 @app.get("/seeding/{region}/{crop}")
 async def get_seeding_advice(region: str, crop: str):
     weather = await get_weather_data(region)
@@ -113,9 +112,11 @@ async def get_seeding_advice(region: str, crop: str):
         "weather": weather,
         "recommendation": recommendation
     }
+
 @app.get("/finance/stocks")
 async def get_stocks():
     return get_esx_prices()
+
 @app.get("/finance/exchange-rate")
 async def get_exchange_rate():
     return get_usd_etb_rate()
