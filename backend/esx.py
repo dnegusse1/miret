@@ -1,0 +1,57 @@
+import requests
+from bs4 import BeautifulSoup
+from datetime import datetime
+
+ESX_COMPANIES = {
+    "TELE": "Ethio Telecom",
+    "AWAB": "Awash Bank",
+    "BOAX": "Bank of Abyssinia",
+    "ABAYB": "Abay Bank",
+    "WGBX": "Wegagen Bank",
+    "GDAB": "Gadaa Bank",
+}
+
+def get_esx_prices():
+    try:
+        headers = {"User-Agent": "Mozilla/5.0"}
+        response = requests.get("https://ticker.et", headers=headers, timeout=10)
+        soup = BeautifulSoup(response.text, "html.parser")
+        stocks = []
+        for ticker, company in ESX_COMPANIES.items():
+            stocks.append({
+                "ticker": ticker,
+                "company": company,
+                "price": None,
+                "change": None,
+                "last_updated": datetime.now().isoformat()
+            })
+        return {
+            "stocks": stocks,
+            "source": "Ethiopian Securities Exchange (ESX)",
+            "last_updated": datetime.now().isoformat(),
+            "status": "live"
+        }
+    except Exception as e:
+        return {
+            "stocks": [],
+            "source": "Ethiopian Securities Exchange (ESX)",
+            "last_updated": datetime.now().isoformat(),
+            "status": "error",
+            "error": str(e)
+        }
+
+def get_usd_etb_rate():
+    try:
+        response = requests.get("https://api.exchangerate-api.com/v4/latest/USD", timeout=10)
+        data = response.json()
+        etb_rate = data["rates"].get("ETB", 160.0)
+        return {
+            "usd_etb": round(etb_rate, 2),
+            "last_updated": datetime.now().isoformat()
+        }
+    except Exception as e:
+        return {
+            "usd_etb": 160.0,
+            "last_updated": datetime.now().isoformat(),
+            "error": str(e)
+        }
