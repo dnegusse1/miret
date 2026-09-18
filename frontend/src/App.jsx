@@ -7,7 +7,6 @@ import Weather from "./pages/Weather"
 import Markets from "./pages/Markets"
 import Submit from "./pages/Submit"
 import Finance from "./pages/Finance"
-import Finance from "./pages/Finance"
 
 export default function App() {
   const [lang, setLang] = useState("en")
@@ -22,6 +21,7 @@ export default function App() {
           <Route path="/weather" element={<Weather lang={lang} />} />
           <Route path="/markets" element={<Markets lang={lang} />} />
           <Route path="/submit" element={<Submit lang={lang} />} />
+          <Route path="/finance" element={<Finance lang={lang} />} />
         </Routes>
       </div>
     </BrowserRouter>
