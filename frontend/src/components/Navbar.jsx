@@ -4,13 +4,13 @@ export default function Navbar({ lang, setLang }) {
   const location = useLocation()
 
   const navItems = [
-    { path: "/", label: "Home", labelAm: "መነሻ" },
-    { path: "/prices", label: "Prices", labelAm: "ዋጋዎች" },
-    { path: "/weather", label: "Weather", labelAm: "አየር ሁኔታ" },
-    { path: "/markets", label: "Markets", labelAm: "ገበያዎች" },
-    { path: "/submit", label: "Submit Price", labelAm: "ዋጋ አስገባ" },
-    { path: "/finance", label: "Finance", labelAm: "ፋይናንስ" },
-  ]
+  { path: "/", label: "Home", labelAm: "መነሻ" },
+  { path: "/prices", label: "Prices", labelAm: "ዋጋዎች" },
+  { path: "/weather", label: "Weather", labelAm: "አየር ሁኔታ" },
+  { path: "/markets", label: "Markets", labelAm: "ገበያዎች" },
+  { path: "/finance", label: "Finance", labelAm: "ፋይናንስ" },
+  { path: "/submit", label: "Submit Price", labelAm: "ዋጋ አስገባ" },
+]
 
   return (
     <nav style={{
