@@ -6,6 +6,8 @@ import Prices from "./pages/Prices"
 import Weather from "./pages/Weather"
 import Markets from "./pages/Markets"
 import Submit from "./pages/Submit"
+import Finance from "./pages/Finance"
+import Finance from "./pages/Finance"
 
 export default function App() {
   const [lang, setLang] = useState("en")

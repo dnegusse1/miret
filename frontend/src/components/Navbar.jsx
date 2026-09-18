@@ -9,6 +9,7 @@ export default function Navbar({ lang, setLang }) {
     { path: "/weather", label: "Weather", labelAm: "አየር ሁኔታ" },
     { path: "/markets", label: "Markets", labelAm: "ገበያዎች" },
     { path: "/submit", label: "Submit Price", labelAm: "ዋጋ አስገባ" },
+    { path: "/finance", label: "Finance", labelAm: "ፋይናንስ" },
   ]
 
   return (
