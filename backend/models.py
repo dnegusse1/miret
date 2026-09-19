@@ -39,3 +39,18 @@ class Market(Base):
     latitude        = Column(Float, nullable=True)
     longitude       = Column(Float, nullable=True)
     is_active       = Column(Boolean, default=True)
+    
+class User(Base):
+    __tablename__ = "users"
+
+    id              = Column(Integer, primary_key=True, index=True)
+    email           = Column(String, unique=True, nullable=False, index=True)
+    phone           = Column(String, nullable=True)
+    full_name       = Column(String, nullable=True)
+    is_active       = Column(Boolean, default=True)
+    is_trader       = Column(Boolean, default=False)
+    is_verified     = Column(Boolean, default=False)
+    otp_code        = Column(String, nullable=True)
+    otp_expires     = Column(DateTime, nullable=True)
+    created_at      = Column(DateTime, default=datetime.utcnow)
+    last_login      = Column(DateTime, nullable=True)

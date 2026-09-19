@@ -9,6 +9,8 @@ from typing import Optional
 from datetime import datetime
 from weather import get_weather_data, get_seeding_recommendation
 from esx import get_esx_prices, get_usd_etb_rate
+from auth import generate_otp, create_access_token, send_otp_email, get_current_user
+from models import User
 
 app = FastAPI(
     title="Miret API",
